@@ -1,4 +1,4 @@
-
+// Computer makes a choice on which shape to play
 function computerPlay () {
     let randomNum = Math.floor((Math.random()*3) + 1);
     if (randomNum === 1) {
@@ -13,34 +13,41 @@ function computerPlay () {
     }
 }
 
+// Plays one round against computer returning result of game
 function playRound(computerSelection) {
     let userChoice = prompt('Enter rock, paper, or scissors to play.', '');
-    console.log(`${userChoice}` + ' vs. ' + `${computerSelection}` );
+    let result = '';
     userChoice = userChoice.toLowerCase();
-    if (userChoice === computerSelection){
-        let result = `It's a tie!`;
-        return console.log(result);
-    } else if ((userChoice === 'rock' ) && (computerSelection === 'paper')) {
-        let result = `You lose! Paper covers rock!`;
-        return console.log(result);
-    } else if ((userChoice === 'rock' ) && (computerSelection === 'scissors')) {
-        let result = `You win! Rock smashes scissors!`;
-        return console.log(result);
-    } else if ((userChoice === 'paper' ) && (computerSelection === 'rock')) {
-        let result = `You win! Paper covers Rock!`;
-        return console.log(result);
-    } else if ((userChoice === 'paper' ) && (computerSelection === 'scissors')) {
-        let result = `You lose! Scissors cuts paper!`;
-        return console.log(result);
-    } else if ((userChoice === 'scissors' ) && (computerSelection === 'rock')) {
-        let result = `You lose! Rock smashes scissors!`;
-        return console.log(result);
-    } else ((userChoice === 'scissors') && (computerSelection == 'paper')); {
-        let result = `You win! Scissors cuts paper!`;
-        return console.log(result);
+    console.log(`${userChoice}` + ' vs. ' + `${computerSelection}` );
+    switch (true){
+        case (userChoice === computerSelection):
+            result = `It's a tie!`;
+            return console.log(result);
+        case ((userChoice === 'rock' ) && (computerSelection === 'paper')):
+            result = `You lose! Paper covers rock!`;
+            return console.log(result);
+        case ((userChoice === 'rock' ) && (computerSelection === 'scissors')):
+            result = `You win! Rock smashes scissors!`;
+            return console.log(result);
+        case ((userChoice === 'paper' ) && (computerSelection === 'rock')):
+            result = `You win! Paper covers Rock!`;
+            return console.log(result);
+        case ((userChoice === 'paper' ) && (computerSelection === 'scissors')):
+            result = `You lose! Scissors cuts paper!`;
+            return console.log(result);
+        case ((userChoice === 'scissors' ) && (computerSelection === 'rock')):
+            result = `You lose! Rock smashes scissors!`;
+            return console.log(result);
+        case ((userChoice === 'scissors') && (computerSelection === 'paper')):
+            result = `You win! Scissors cuts paper!`;
+            return console.log(result);
+        default:
+            result = `That's an invalid choice!`
+            return console.log(result);
     }
 }
 
+// Plays a loop of five rounds using the playRound function
 function game() {
     for (let i = 0; i < 5; i++) {
         playRound(computerPlay());
