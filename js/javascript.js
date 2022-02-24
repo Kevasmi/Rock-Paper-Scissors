@@ -14,11 +14,11 @@ const btnScissors = document.querySelector('#scissors');
 const playScissors = document.querySelector('#scissors').textContent;
 
 
-const container = document.querySelector('#container'); 
+const container = document.querySelector('#container');
 
 // Computer makes a choice on which shape to play
-function computerPlay () {
-    let randomNum = Math.floor((Math.random()*3) + 1);
+function computerPlay() {
+    let randomNum = Math.floor((Math.random() * 3) + 1);
     if (randomNum === 1) {
         let choice = 'rock';
         return choice;
@@ -38,37 +38,37 @@ function playRound(playerSelection) {
     let li = document.createElement('li');
     console.log(`${playerSelection}` + ' vs. ' + `${computerSelection}`);
     if ((playerScore < 5) && (computerScore < 5)) {
-        switch (true){
+        switch (true) {
             case (playerSelection === computerSelection):
                 li.innerText += ' It\'s a tie! ';
                 return resultContainer.appendChild(li);
-            case ((playerSelection === 'rock' ) && (computerSelection === 'paper')):
-                computerScore ++;
+            case ((playerSelection === 'rock') && (computerSelection === 'paper')):
+                computerScore++;
                 score2.textContent = computerScore;
                 li.innerText += ` You lose! Paper covers rock! `;
                 return resultContainer.appendChild(li);
-            case ((playerSelection === 'rock' ) && (computerSelection === 'scissors')):
-                playerScore ++ ;
+            case ((playerSelection === 'rock') && (computerSelection === 'scissors')):
+                playerScore++;
                 score1.textContent = playerScore;
                 li.innerText += ` You win! Rock smashes scissors! `;
                 return resultContainer.appendChild(li);
-            case ((playerSelection === 'paper' ) && (computerSelection === 'rock')):
-                playerScore ++ ;
+            case ((playerSelection === 'paper') && (computerSelection === 'rock')):
+                playerScore++;
                 score1.textContent = playerScore;
                 li.innerText += ` You win! Paper covers Rock! `;
                 return resultContainer.appendChild(li);
-            case ((playerSelection === 'paper' ) && (computerSelection === 'scissors')):
-                computerScore ++ ;
+            case ((playerSelection === 'paper') && (computerSelection === 'scissors')):
+                computerScore++;
                 score2.textContent = computerScore;
                 li.innerText += ` You lose! Scissors cuts paper! `;
                 return resultContainer.appendChild(li);
-            case ((playerSelection === 'scissors' ) && (computerSelection === 'rock')):
-                computerScore ++ ;
+            case ((playerSelection === 'scissors') && (computerSelection === 'rock')):
+                computerScore++;
                 score2.textContent = computerScore;
                 li.innerText += ` You lose! Rock smashes scissors! `;
                 return resultContainer.appendChild(li);
             case ((playerSelection === 'scissors') && (computerSelection === 'paper')):
-                playerScore ++ ;
+                playerScore++;
                 score1.textContent = playerScore;
                 li.innerText += ` You win! Scissors cuts paper! `;
                 return resultContainer.appendChild(li);
