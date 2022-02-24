@@ -1,9 +1,9 @@
 let playerScore = 0;
 let computerScore = 0;
 const score1 = document.querySelector('#player-score')
-score1.textContent = playerScore;
+score1.textContent = `Player Score: ${playerScore} `;
 const score2 = document.querySelector('#computer-score');
-score2.textContent = computerScore;
+score2.textContent = `Computer Score: ${computerScore} `;
 const resultContainer = document.querySelector('#result-list');
 
 const btnRock = document.querySelector('#rock');
@@ -12,7 +12,6 @@ const btnPaper = document.querySelector('#paper');
 const playPaper = document.querySelector('#paper').textContent;
 const btnScissors = document.querySelector('#scissors');
 const playScissors = document.querySelector('#scissors').textContent;
-
 
 const container = document.querySelector('#container');
 
@@ -44,32 +43,32 @@ function playRound(playerSelection) {
                 return resultContainer.appendChild(li);
             case ((playerSelection === 'rock') && (computerSelection === 'paper')):
                 computerScore++;
-                score2.textContent = computerScore;
+                score2.textContent = `Computer Score: ${computerScore} `;
                 li.innerText += ` You lose! Paper covers rock! `;
                 return resultContainer.appendChild(li);
             case ((playerSelection === 'rock') && (computerSelection === 'scissors')):
                 playerScore++;
-                score1.textContent = playerScore;
+                score1.textContent = `Player Score: ${playerScore} `;
                 li.innerText += ` You win! Rock smashes scissors! `;
                 return resultContainer.appendChild(li);
             case ((playerSelection === 'paper') && (computerSelection === 'rock')):
                 playerScore++;
-                score1.textContent = playerScore;
+                score1.textContent = `Player Score: ${playerScore} `;
                 li.innerText += ` You win! Paper covers Rock! `;
                 return resultContainer.appendChild(li);
             case ((playerSelection === 'paper') && (computerSelection === 'scissors')):
                 computerScore++;
-                score2.textContent = computerScore;
+                score2.textContent = `Computer Score: ${computerScore} `;
                 li.innerText += ` You lose! Scissors cuts paper! `;
                 return resultContainer.appendChild(li);
             case ((playerSelection === 'scissors') && (computerSelection === 'rock')):
                 computerScore++;
-                score2.textContent = computerScore;
+                score2.textContent = `Computer Score: ${computerScore} `;
                 li.innerText += ` You lose! Rock smashes scissors! `;
                 return resultContainer.appendChild(li);
             case ((playerSelection === 'scissors') && (computerSelection === 'paper')):
                 playerScore++;
-                score1.textContent = playerScore;
+                score1.textContent = `Player Score: ${playerScore} `;
                 li.innerText += ` You win! Scissors cuts paper! `;
                 return resultContainer.appendChild(li);
             default:
